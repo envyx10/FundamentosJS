@@ -57,3 +57,5 @@ console.log({horaApertura});
 
 mensaje = ( horaActual >= horaApertura) ? 'Está abierto' : ` Está cerrado, abrimos a las ${horaApertura}`
 console.log({mensaje});
+
+// protip en carpeta protips
