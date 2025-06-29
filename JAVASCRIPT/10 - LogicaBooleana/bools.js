@@ -43,5 +43,5 @@ console.warn('OR'); // Lo opuesto a &&
     console.log(regresaTrue() || regresaFalse());
     
 
-console.warn('Asignaciones');
-    
+// Protip en la carpeta de 7 - protips
+
