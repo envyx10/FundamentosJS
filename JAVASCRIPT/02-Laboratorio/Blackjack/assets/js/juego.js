@@ -35,7 +35,7 @@ const crearDeck = () => {
     console.log(deck); 
     deck = _.shuffle(deck)
     console.log(deck); 
-
+    return deck
 }
 
 crearDeck()
