@@ -1,7 +1,5 @@
 // Otro Array Method que quiero mostrarte es filter...
-
 // Filter va a crearte un arreglo basado en un parametro que es evaluado..
-
 
 const carrito = [
     { nombre: 'Monitor 20 Pulgadas', precio: 500},
@@ -14,13 +12,21 @@ const carrito = [
     { nombre: 'Laptop', precio: 800},
 ];
 
-let resultado = carrito.filter( producto => producto.precio > 400 ); // Todos los mayores a 400 - añadir  && producto.precio < 600
-let resultado2 = carrito.filter( producto => producto.nombre === 'Celular'  ); // Traerte el celular
-let resultado3 = carrito.filter(producto => producto.nombre !== 'Laptop'); // Todos menos la laptop
 
 
-console.log(resultado);
-console.log(resultado2);
-console.log(resultado3);
+let resultado
 
-// Filter es en mi opinión el más util y el más utilizado!
+// te muestra lo que este por encima de 700
+resultado = carrito.filter( producto => producto.precio > 700) 
+    console.log(resultado);
+
+resultado = carrito.filter (producto => producto.precio < 600)
+    console.log(resultado);
+
+// Trae todo excepto Audifonos
+resultado = carrito.filter ( producto => producto.nombre !== 'Audifonos')
+    console.log(resultado);
+
+// Solo trae Audifonos
+resultado = carrito.filter ( producto => producto.nombre === 'Audifonos')
+    console.log(resultado);

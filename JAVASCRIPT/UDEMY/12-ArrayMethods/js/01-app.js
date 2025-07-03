@@ -16,7 +16,6 @@ const carrito = [
 ];
 
 
-
 // Si te gustaría saber si nuestro arreglo de meses, tiene el mes de Febrero, podrías hacerlo con un foreach...
 
 // Comprobar si un valor existe en un array

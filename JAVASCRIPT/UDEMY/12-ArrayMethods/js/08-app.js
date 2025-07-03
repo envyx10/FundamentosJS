@@ -15,24 +15,22 @@ const carrito = [
 ];
 
 
-// Si tienes 2 arreglos los unes como vimos en el video anterior, pero digamos que tienes un arreglo y quieres añadir un elemento al final que es un string utilizarias...
+console.warn('Spread Operator');
 
-const meses2 = [...meses, 'Julio'];
-console.log(meses);
-console.log(meses2); // Recuerda esto no modifica el arreglo original como si haria push y eso es muy útil en un tipo de programación llamada funcional...
+    // Esto no modifica el array original
+    // Como podemos observar seguimos teniendo el mismo array enterito
+    console.log(meses);
 
+    // Este spread hace una copia de meses
+    const meses2 = [...meses, 'Julio']
+    console.log(meses2);
+    
 
+console.warn('Spread Operator, con objetos');
 
-// O al inicio... en lugar de utilizar unshift, 
-const meses3 = ['Julio',...meses ]; 
+    const producto  = { producto: 'Disco Duro', precio: 300}
 
-
-// O tal vez quieres añadir un objeto a un arreglo de objetos al final
-const producto = {producto: 'Disco Duro', precio: 300};
-const carrito2 = [...carrito, producto];
-console.log(carrito2);
-
-
-// o al inicio
-const carrito3 = [producto, ...carrito];
-console.log(carrito3);
+    // Ojo, para agregar el producto no debemos poner ...
+    const carrito2 = [...carrito, producto]
+    console.log(carrito2);
+    

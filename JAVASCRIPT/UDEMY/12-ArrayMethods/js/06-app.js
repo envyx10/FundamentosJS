@@ -12,19 +12,10 @@ const carrito = [
     { nombre: 'Laptop', precio: 800},
 ];
 
-// con un foreach seria algo asi...
-let cumple = true;
-carrito.forEach( producto => {
-    if(producto.precio > 700) {
-        cumple = false;
-        return
-    }
-})
-console.log(cumple);
-
-
-
-const resultado = carrito.every(producto => producto.precio < 1000); // Mil se cumple, 700 no...
+// revisa por todos
+const resultado = carrito.every(producto => producto.precio < 1000)
 console.log(resultado);
 
-//
+// revisa al menos que 1 cumpla 
+const resultado2 = carrito.every(producto => producto.precio < 500)
+console.log(resultado2);

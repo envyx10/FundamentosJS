@@ -13,16 +13,31 @@ const carrito = [
     { producto: 'Laptop', precio: 800},
 ];
 
-// Primero veamos como seria el ejemplo con un forEach...
+// Forma de hacerlo con forEach
+console.warn('Forma con forEach');
 
-meses.forEach( (mes, index) => {
-    if(mes === 'Abril') { // Si ponemos diciembre no lo va a encontrar...
-        console.log(`Encontrado en el indice ${index}`);
-    }
-});
+    meses.forEach( (mes,i) => {
 
+        if(mes === 'Abril') {
+            console.log(`Encontrado en el indice ${i}`);
+            
+        }
 
+    })
 
-// FindIndex te dirá el indice es decir la ubicación del elemento en el arreglo...
-const indice = meses.findIndex( mes => mes === 'Abril' ); // Cambiar a Diciembre, Tendremos -1 eso quiere decir que no lo encontró
-console.log(indice);
+console.warn('Forma con findIndex');
+
+    // Encontrar el Indice de abril con findIndex
+    // Si buscas por un valor que no existe te devuelve -1
+    const indice = meses.findIndex( i => i === 'Abril')
+    console.log(indice);
+
+    // Lo mismo con array de objetos ( en este caso coge la posicion 0 )
+    const indice1 = carrito.findIndex( i => i.producto === 'Monitor 20 Pulgadas')
+    console.log(indice1);
+
+    // Tenemos varios 300 en el array de objetos pero solo retorna la posicion 2
+    // Esto es porque findIndex solo retorna la primera coincidencia
+    const indice2 = carrito.findIndex( i => i.precio === 300 )
+    console.log(indice2);
+
