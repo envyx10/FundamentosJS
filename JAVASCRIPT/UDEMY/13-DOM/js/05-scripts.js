@@ -1,24 +1,20 @@
-// en este video estaremos viendo querySelectorAll
+// querySelectorAll
 
-// la buena noticia es que la sintaxis para selectores es la misma, es decir similar a CSS, con el punto para las classes y el numeral o signo de gato para los ID's, también puedes añadir un selector especifico..
+// la buena noticia es que la sintaxis para selectores es la misma, es decir similar a CSS, con el punto para las classes y el numeral o signo de gato para los ID's, también puedes añadir un selector especifico.
 
 // Pero la diferencia principal, es que querySelectorAll va a retornar todos los elementos que concuerden con el selector y no va a limitarte al primero como querySelector.
-
 
 // En nuestro HTML hay muchos cards, cuando utilizamos querySelector vimos que retornaba unicamente el primero..
 
 
-const cards = document.querySelectorAll('.card'); 
-console.log(cards);
+// Nos retorna un nodelist ( similar a un arrayList )
+const card = document.querySelectorAll('.card')
+console.log(card);
 
-// si recuerdas tenemos dos elementos con el id de formulario
+// Retorna todo da igual si sigues o no buenas practicas, hay que tener cuidado con eso
+const formularios = document.querySelectorAll('#formulario')
+console.log(formularios);
 
-const formularios = document.querySelectorAll('#formulario'); 
-console.log(formularios); // Puedes ver quue eso si funciona, sin embargo recuerda que no rescomendable tener el mismo ID más de una vez por docuemnto...
-
-
-// Si no hay elementos no va a retornar nada
-
-// Si un selector no existe, 
-const noExiste = document.querySelectorAll('#no-existe');
+// Si un elemento no  devuelve un NodeList[] vacio
+const noExiste = document.querySelectorAll('no-existe')
 console.log(noExiste);
