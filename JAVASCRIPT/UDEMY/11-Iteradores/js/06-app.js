@@ -7,14 +7,25 @@ pendientes.forEach( (pendiente, index) =>  {
     console.log(`${index} : ${pendiente}`);
 });
 
+console.warn('ForEach');
+
+pendientes.map( (pendiente, index) =>  {
+    console.log(`${index} : ${pendiente}`);
+});
+
+
+
 // Recuerda que como es una sola linea, la llave es opcional...
 
 // Recorrer arreglo de objetos
+console.warn('Recorrer arreglo de objetos');
+
 const carrito = [
     {id: 1, producto: 'Libro' },
     {id: 2, producto: 'Camisa'},
     {id: 3, producto: 'Disco'}
 ];
+
 
 carrito.forEach( producto =>  {
     console.log(`Agregaste ${producto}`);
