@@ -16,24 +16,47 @@ const carrito = [
 ];
 
 
+
 // Si te gustaría saber si nuestro arreglo de meses, tiene el mes de Febrero, podrías hacerlo con un foreach...
+
+// Comprobar si un valor existe en un array
 
 meses.forEach(mes => {
     if(mes === 'Enero') {
         console.log('Enero si existe...')
+    } else {
+        console.log('No se encuentra el mes');
+        
     }
 })
 
 // O también podrías utilizar el Array Method de .includes
 
-const resultado = meses.includes('Enero'); // Cambiar a Diciembre...
-console.log(resultado);
+console.warn('prueba includes');
+
+    const resultado = meses.includes('Marzo'); // Cambiar a Diciembre...
+    console.log(resultado);
+
+console.warn('fin prueba includes');
 
 
-// En el caso de un arreglo de objetos... .includes no es la mejor opción, podrías utilizar uno llamado .some
-const existe = carrito.some( producto => producto.nombre === 'Celular' );
-console.log(existe);
+console.warn('prueba some');
 
-// Some en un arreglo tradicional...
-const existe2 = meses.some( mes => mes === 'Febrero' );
-console.log(existe2);
+    // En el caso de un arreglo de objetos... .includes no es la mejor opción, 
+    // podrías utilizar uno llamado .some
+
+    // Con return
+    const existe1 = carrito.some ( producto => {
+        return producto.nombre === 'Celular'
+    })
+    console.log(existe1);
+    
+    // Sin return - Al tener solo un return, se puede quitar y quedar asi
+    const existe = carrito.some( producto => producto.nombre === 'Celular' );
+    console.log(existe);
+
+    // Some en un arreglo tradicional...
+    const existe2 = meses.some( mes => mes === 'Febrero' );
+    console.log(existe2);
+
+console.warn('fin prueba some');
