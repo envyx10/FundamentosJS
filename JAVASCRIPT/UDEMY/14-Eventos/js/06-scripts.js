@@ -23,3 +23,4 @@ titulo.addEventListener('click', e => {
     e.stopPropagation();
     console.log('click titulo');
 })
+
