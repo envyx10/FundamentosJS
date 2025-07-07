@@ -7,16 +7,12 @@ const contenedorCarrito = document.querySelector('#lista-carrito tbody')
 const vaciarCarrito     = document.querySelector('#vaciar-carrito')
 const listaCursos       = document.querySelector('#lista-cursos')
 
-
-cargarEventListeners() ;
-
+// Funciones
 function cargarEventListeners() {
         // Cuando agregas un curso presionando '' Agregar ''
         listaCursos.addEventListener('click', agregarCurso)
 }
 
-
-// Funciones
 function agregarCurso(e){
 
     e.preventDefault() // Evitamos el salto que hace hacia el herosection al pulsar el boton
@@ -26,5 +22,6 @@ function agregarCurso(e){
         console.log(e.target);
     }
     
-
 }
+
+cargarEventListeners() ;
