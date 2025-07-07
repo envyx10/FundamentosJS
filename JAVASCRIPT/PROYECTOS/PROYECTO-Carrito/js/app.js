@@ -13,6 +13,33 @@ let articulosCarritos = []
 function cargarEventListeners() {
         // Cuando agregas un curso presionando '' Agregar ''
         listaCursos.addEventListener('click', agregarCurso)
+
+        // Elimina cursos del carrito
+        carrito.addEventListener('click', eliminarCurso)
+
+        // Vaciar el carrito
+        vaciarCarrito.addEventListener('click', () => {
+            articulosCarritos = [] // Reseteamos el array      
+            limpiarHTML()      // Eliminamos todo el html
+        })
+
+} 
+
+
+// Elimina un curso del carrito
+function eliminarCurso(e){
+
+    if(e.target.classList.contains('borrar-curso')){
+        
+        const cursoId = e.target.getAttribute('data-id')
+
+        // Elimina del array del articuloCarrito por el data-id
+        articulosCarritos = articulosCarritos.filter(curso => curso.id !== cursoId)
+        
+        carritoHTML() // Iterar sobre el carrito y mostrar su HTML
+        
+    }
+    
 }
 
 function agregarCurso(e){
@@ -45,8 +72,34 @@ function leerDatosCurso(curso){
         
     }
 
+    // revisa si un elemento ya existe en el carrito
+    const {  id  }= infoCurso
+    const existe = articulosCarritos.some( curso => curso.id === id)
+    if(existe){
+
+        // actualizamos la cantidad
+        const cursos = articulosCarritos.map( curso => {
+
+            if(curso.id === id){
+                curso.cantidad++ // Incrementa la cantidad
+                return curso // devuelve el objeto actualizado
+            } else { 
+                return curso // devuelve los objetos que no son duplicados
+            }
+        })
+
+        articulosCarritos = [...cursos]
+
+    } else {
+
+        // Agregamos el curso al carrito
+        articulosCarritos = [...articulosCarritos, infoCurso]
+
+    }
+    
+
+
     // Agrega elementos al array del carrito
-    articulosCarritos = [...articulosCarritos, infoCurso]
 
     console.log(articulosCarritos);
 
