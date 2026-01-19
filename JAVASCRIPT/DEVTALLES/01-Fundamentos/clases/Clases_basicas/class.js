@@ -14,6 +14,8 @@ class Persona {
     frase  = '' ;
 
     // Definimos el constructor con sus propiedades
+    // constructor es una palabra reservada
+    // Si cambiamos la palabra, dejaria de funcionar.
     constructor(nombre, codigo, frase){
 
         this.nombre = nombre;
