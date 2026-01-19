@@ -53,9 +53,10 @@ class Persona {
 
 }
 
+
 // Cramos instancias con las propiedades de la clase Persona
 const spiderman = new Persona('Pablo', 1995, 'Tengo sueño');
-const ironman = new Persona('Toni', 'IronMan', 'Yo soy ironman');
+const ironman   = new Persona('Toni', 'IronMan', 'Yo soy ironman');
 
 // Al ser un set no va con () finales
 spiderman.setComidaFavorita = ' El pie de cereza de la tia May'
@@ -63,5 +64,5 @@ console.log(spiderman.getComidaFavorita);
 
 // No tenemos nemesis en ningn lado pero al setearlo nosotros mismos este aparece 
 // A tener en cuenta, esto solo se verá para spiderman, no para todos.
-//  ----  spiderman.nemesis = 'Duende Verde'
+//  ----  spiderman.nemesis = 'Duende Verde' ----
 
