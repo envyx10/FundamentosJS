@@ -57,7 +57,7 @@ class Persona {
 // entonces extendemos de la clase Persona en este caso para no repetir los propiedades
 class Heroe extends Persona{
 
-    clan= ' sin clan ';
+    clan = ' sin clan ';
 
     constructor(nombre, codigo, frase){
 
