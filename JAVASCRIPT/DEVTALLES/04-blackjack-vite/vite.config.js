@@ -5,6 +5,6 @@ import { defineConfig} from 'vite';
 
 export default 
     defineConfig({
-        base: '/js-vite-blackjack/',
+        base: '/FundamentosJS/', // Aqui va el nombre del repo
         pluging: []
     });
