@@ -1,3 +1,7 @@
+import './style.css'
+
+/*  _ es una variable, una convencion del propio underscore que significa _  */
+import _ from 'underscore' 
 /**
  * 2C = Two of Clubs
  * 2D = Two of Diamonds
