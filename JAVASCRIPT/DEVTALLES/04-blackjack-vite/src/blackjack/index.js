@@ -4,7 +4,9 @@ import _ from 'underscore'
 
 // import { crearDeck as crearNuevoDeck } from './usecases/crear-deck.js'
 import { crearDeck as crearNuevoDeck } from './usecases/crear-deck.js'
+import { valorCarta } from './usecases/valorCarta.js'
 
+import { pedirCarta } from './buttons/pedirCarta.js'
 
 /**
  * 2C = Two of Clubs
@@ -14,12 +16,12 @@ import { crearDeck as crearNuevoDeck } from './usecases/crear-deck.js'
  */
 
 // Este deck es totalmente indpendiente al de crear-deck.js es pura nomenclatura
-let deck        = [];
+let deck         = [];
 
 const tipos      = ['C','D','H','S'],
       especiales = ['A','J','Q','K'];
 
-let puntosJugador = 0,
+let puntosJugador     = 0,
     puntosComputadora = 0;
 
 // Referencias del HTML
@@ -37,32 +39,14 @@ const puntosHTML = document.querySelectorAll('small');
 // deck = crearNuevoDeck( tipos, especiales );
 
 // Nueva forma, ahora crearNuevoDeck() es de tipo array dado el comentario que pusimos en crear-deck.js
-deck = crearNuevoDeck(tipos, especiales)
-
-// Esta función me permite tomar una carta
-const pedirCarta = () => {
-
-    if ( deck.length === 0 ) {
-        throw 'No hay cartas en el deck';
-    }
-    const carta = deck.pop();
-    return carta;
-}
-
-// pedirCarta();
-const valorCarta = ( carta ) => {
-
-    const valor = carta.substring(0, carta.length - 1);
-    return ( isNaN( valor ) ) ? 
-            ( valor === 'A' ) ? 11 : 10
-            : valor * 1;
-}
+deck = crearNuevoDeck(tipos, especiales);
 
 // turno de la computadora
 const turnoComputadora = ( puntosMinimos ) => {
 
     do {
-        const carta = pedirCarta();
+
+        const carta = pedirCarta( deck );
 
         puntosComputadora = puntosComputadora + valorCarta( carta );
         puntosHTML[1].innerText = puntosComputadora;
@@ -97,7 +81,7 @@ const turnoComputadora = ( puntosMinimos ) => {
 // Eventos
 btnPedir.addEventListener('click', () => {
 
-    const carta = pedirCarta();
+    const carta = pedirCarta( deck );
     
     puntosJugador = puntosJugador + valorCarta( carta );
     puntosHTML[0].innerText = puntosJugador;
@@ -135,7 +119,7 @@ btnNuevo.addEventListener('click', () => {
 
     console.clear();
     deck = [];
-    deck = crearDeck();
+    deck = crearNuevoDeck( tipos, especiales);
 
     puntosJugador     = 0;
     puntosComputadora = 0;
