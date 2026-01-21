@@ -2,7 +2,7 @@ import _ from 'underscore';
 
 /**
  * Este funcion crea una funcion que crea un nuevo deck
- * @param {ANGLE_instanced_arraysrray<string>} tiposDeCarta  Ejemplo - ['C','D','H','S']
+ * @param {Array<string>} tiposDeCarta  Ejemplo - ['C','D','H','S']
  * @param {Array<string>} tiposEspeciales  Ejemplo - ['A','J','Q','K']
  * @returns {Array<string>} retorna un nuevo deck de cartas
  */ 
