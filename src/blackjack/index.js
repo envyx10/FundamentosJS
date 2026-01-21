@@ -15,6 +15,7 @@ import { crearDeck as crearNuevoDeck } from './usecases/crear-deck.js'
 
 // Este deck es totalmente indpendiente al de crear-deck.js es pura nomenclatura
 let deck        = [];
+
 const tipos      = ['C','D','H','S'];
 const especiales = ['A','J','Q','K'];
 
