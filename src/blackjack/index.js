@@ -3,7 +3,7 @@
 import _ from 'underscore' 
 
 // import { crearDeck as crearNuevoDeck } from './usecases/crear-deck.js'
-import { crearDeck as crearNuevoDeck, valorCarta, pedirCarta, turnoComputadora } from './usecases'
+import { crearDeck as crearNuevoDeck, valorCarta, pedirCarta, turnoComputadora, crearCarta } from './usecases'
 
 /**
  * 2C = Two of Clubs
@@ -47,10 +47,7 @@ btnPedir.addEventListener('click', () => {
     puntosJugador = puntosJugador + valorCarta( carta );
     puntosHTML[0].innerText = puntosJugador;
     
-    // <img class="carta" src="assets/cartas/2C.png">
-    const imgCarta = document.createElement('img');
-    imgCarta.src = `assets/cartas/${ carta }.png`; //3H, JD
-    imgCarta.classList.add('carta');
+    const imgCarta = crearCarta( carta );
     divCartasJugador.append( imgCarta );
 
     if ( puntosJugador > 21 ) {
