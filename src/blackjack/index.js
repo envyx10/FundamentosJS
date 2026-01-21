@@ -16,26 +16,28 @@ import { crearDeck as crearNuevoDeck } from './usecases/crear-deck.js'
 // Este deck es totalmente indpendiente al de crear-deck.js es pura nomenclatura
 let deck        = [];
 
-const tipos      = ['C','D','H','S'];
-const especiales = ['A','J','Q','K'];
+const tipos      = ['C','D','H','S'],
+      especiales = ['A','J','Q','K'];
 
 let puntosJugador = 0,
     puntosComputadora = 0;
 
 // Referencias del HTML
-const btnPedir   = document.querySelector('#btnPedir');
-const btnDetener = document.querySelector('#btnDetener');
-const btnNuevo   = document.querySelector('#btnNuevo');
+const btnPedir   = document.querySelector('#btnPedir'),
+      btnDetener = document.querySelector('#btnDetener'),
+      btnNuevo   = document.querySelector('#btnNuevo');
 
-const divCartasJugador     = document.querySelector('#jugador-cartas');
-const divCartasComputadora = document.querySelector('#computadora-cartas');
+const divCartasJugador     = document.querySelector('#jugador-cartas'),
+      divCartasComputadora = document.querySelector('#computadora-cartas');
 
 const puntosHTML = document.querySelectorAll('small');
 
 // Este deck es totalmente indpendiente al de crear-deck.js es pura nomenclatura
 // Este deck es el de la linea 17
-deck = crearNuevoDeck( tipos, especiales );
+// deck = crearNuevoDeck( tipos, especiales );
 
+// Nueva forma, ahora crearNuevoDeck() es de tipo array dado el comentario que pusimos en crear-deck.js
+deck = crearNuevoDeck(tipos, especiales)
 
 // Esta función me permite tomar una carta
 const pedirCarta = () => {

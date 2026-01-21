@@ -1,8 +1,17 @@
 import _ from 'underscore';
 
-
-// Este modulo crea una funcion que crea un nuevo deck
+/**
+ * Este funcion crea una funcion que crea un nuevo deck
+ * @param {ANGLE_instanced_arraysrray<string>} tiposDeCarta  Ejemplo - ['C','D','H','S']
+ * @param {Array<string>} tiposEspeciales  Ejemplo - ['A','J','Q','K']
+ * @returns {Array<string>} retorna un nuevo deck de cartas
+ */ 
 export const crearDeck = (tiposDeCarta, tiposEspeciales) => {
+
+    // Control de errores, en typescript no pasaría.
+    if(!tiposDeCarta || tiposDeCarta.length === 0  ) throw new Error('tiposDeCarta es obligatorio como un array de string');
+
+    if(!tiposEspeciales || tiposEspeciales.length === 0  ) throw new Error('tiposEspeciales es obligatorio como un array de string');
 
     // Este deck es totalmente diferente al deck del index.js
     // No tienen nada que ver.
@@ -31,7 +40,7 @@ export const crearDeck = (tiposDeCarta, tiposEspeciales) => {
     // Al poner deck = ..., estás arrancando la etiqueta "deck" de la caja vieja (ordenada) 
     // y pegándosela a la caja nueva (barajada).
     deck = _.shuffle( deck );
-    
+
     // El repartidor saca esa última caja (la barajada) por la puerta.
     return deck;
 
