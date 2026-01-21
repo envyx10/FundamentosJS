@@ -1,5 +1,4 @@
 
-
 /**
  * Obtener el valor de la carta
  * @param {Array<string>} carta 
