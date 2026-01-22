@@ -1,6 +1,5 @@
 
 
-
 // variables
 // Seleccionamos el formulario entero del html.
 const formulario = document.querySelector('#formulario');
