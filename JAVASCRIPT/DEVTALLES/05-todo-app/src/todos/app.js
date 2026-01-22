@@ -10,8 +10,13 @@ import html from './app.html?raw';
  */
 export const App = ( elementId ) => {
 
-    // Funcion anonima autoinvocada (IIFE)
 
+    
+
+
+
+
+    // Funcion anonima autoinvocada (IIFE)
     (() => {
 
         // Traducción: Crea una caja vacía de cartón (un <div>) en la memoria de JavaScript.
