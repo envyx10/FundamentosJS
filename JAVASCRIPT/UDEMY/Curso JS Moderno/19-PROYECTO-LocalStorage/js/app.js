@@ -19,11 +19,13 @@ eventListeners();
 function eventListeners(){
 
     // Traduccción: "Formulario, quédate escuchando. Cuando ocurra un 'submit', ejecuta la función 'agregarTweet'"
+    // formulario. es el id del html y del querySelector de la linea 6
     formulario.addEventListener('submit' , agregarTweet);
 
     // addEventListener es el '' pegamento ''
     // tiene dos argumentos, en este caso ' submit ' es el tipo de evento que estamos esperando ( que ocurre al pulsar el botón )
     // El segundo argumento es la funcion que queremos que se active cuando el botón sea pulsado
+    // Su único trabajo es quedarse quieto en un sitio específico y esperar a que pase algo muy concreto para dar la alarma.
 
 }
 
