@@ -46,10 +46,10 @@ function agregarTweet(e){
     if(tweet === ''){
         console.log(' Debes escribir algún mensaje');
 
-        return // Evita que se ejecute mas lineas de codigo, este return funciona en un if siempre que este dentro de una funcion
     }
-    
+    return // Evita que se ejecute mas lineas de codigo, este return funciona en un if siempre que este dentro de una funcion
     console.log('hola');
     
-    
 }
+
+
