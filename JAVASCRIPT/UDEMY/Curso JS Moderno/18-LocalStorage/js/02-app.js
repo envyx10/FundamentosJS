@@ -1,7 +1,5 @@
 
 
-
-
 // Si creamos por ejemplo un objeto
 // donde tenemos un string y un numero
 
@@ -22,9 +20,6 @@
 
 // Recuperarmos mediante SET
 const nombre = localStorage.getItem('producto')
-
-// Lo que debemos hacer es pasarlo todo a string para que lo acepte
-const productoToString = JSON.stringify(producto)
 
 
 // JSON.parse
