@@ -35,5 +35,21 @@ function agregarTweet(e){
     // Le dice al navegador '' No recargues la página ni envies nada al servidor todavia
     e.preventDefault();
     console.log('Agergando Tweet');
+
+    // text area donde el usuario escribe, con .value accedemos a su valor
+    // Basicamente cogemos el valor del text area y lo guardamos en la const tweet que posteriormente es llamada despues
+    const tweet = document.querySelector('#tweet').value;
+    console.log(tweet);
+
+    // Validar en caso de que no haya texto
+    // No sirve la validacion si el codigo se sigue ejectuando abajo
+    if(tweet === ''){
+        console.log(' Debes escribir algún mensaje');
+
+        return // Evita que se ejecute mas lineas de codigo, este return funciona en un if siempre que este dentro de una funcion
+    }
+    
+    console.log('hola');
+    
     
 }
