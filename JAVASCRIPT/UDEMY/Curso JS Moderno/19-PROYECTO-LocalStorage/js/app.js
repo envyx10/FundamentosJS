@@ -49,18 +49,21 @@ function agregarTweet(e){
         return // Evita que se ejecute mas lineas de codigo, este return funciona en un if siempre que este dentro de una funcion
     }
 
-
+    // hacemos un objeto para tener un id con milisegundos, de esta manera tenemos un '' DNI '' único
     const tweetObj = {
         id:Date.now(),
         tweet // si nuestra clave / valor son iguales se puede dejar solamente 1 es decir, tweet: tweet
 
     }
 
-    // 
+    // spread operator
+    // forma moderna y de buena practica sustitutiva al .push(), respeta la inmutabilidad
+    // Respeta el original.
+    // Copia lo que tiene ...tweet, lo pega en tweetObj y añade un nuevo objeto
     tweets = [...tweets, tweetObj];
     console.log(tweets);
 
-    // crear html
+    // funcion crear html
     crearHTML();
     
     // Reiniciar el formulario, asi no se queda nada guardado en el textArea
