@@ -21,6 +21,13 @@ function eventListeners(){
     // El segundo argumento es la funcion que queremos que se active cuando el botón sea pulsado
     // Su único trabajo es quedarse quieto en un sitio específico y esperar a que pase algo muy concreto para dar la alarma.
 
+    // cuando el documento esta listo
+    document.addEventListener('DOMContentLoaded', () => {
+        tweets = JSON.parse(localStorage.getItem('tweets')) || [];
+        console.log(tweets);
+        crearHTML();
+    })
+
 }
 
 eventListeners();
@@ -117,7 +124,7 @@ function crearHTML(){
 
     if(tweets.length > 0){
 
-        tweets.forEach( tweet =>{
+        tweets.forEach( tweet => {
             //crear el HTML
             const li = document.createElement('li');
             // agregar el texto
@@ -128,8 +135,16 @@ function crearHTML(){
 
     }
 
+    sincronizarStorage();   
+
 }
 
+/**
+ *  Agrega los tweets actuales al LocalStorage
+ */
+function sincronizarStorage(){
+    localStorage.setItem('tweets', JSON.stringify(tweets))
+}
 
 /**
  * limpiar html para la redundancia de crearHTML
