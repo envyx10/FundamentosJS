@@ -1,16 +1,15 @@
 
 
-// variables
 // Seleccionamos el formulario entero del html.
 const formulario = document.querySelector('#formulario');
 const listaTweets = document.querySelector('#lista-tweets');
+
 let tweets = [];
 
-// Event Listeners
-eventListeners();
-
-// Al pulsar el boton ( el input ) dispara este evento
-// Con esta funcion creamos la conexión 
+/**
+ * Al pulsar el boton ( el input ) dispara este evento
+ * Con esta funcion creamos la conexión 
+ */
 function eventListeners(){
 
     // Traduccción: "Formulario, quédate escuchando. Cuando ocurra un 'submit', ejecuta la función 'agregarTweet'"
@@ -23,6 +22,8 @@ function eventListeners(){
     // Su único trabajo es quedarse quieto en un sitio específico y esperar a que pase algo muy concreto para dar la alarma.
 
 }
+
+eventListeners();
 
 /**
  * 
@@ -106,8 +107,9 @@ function mensajeError(error){
 
 }
 
-
-//
+/**
+ * Funcion para crear elementos a la lista
+ */
 function crearHTML(){
 
     // Lo ponemos primero, es como si queremos corregir algo, primero lo borramos y luego aplicamos la correción
@@ -126,10 +128,12 @@ function crearHTML(){
 
     }
 
-
 }
 
-// limpiar html para la redundancia de crearHTML
+
+/**
+ * limpiar html para la redundancia de crearHTML
+ */
 function limpiarHTML(){
     while(listaTweets.firstChild){
         listaTweets.removeChild(listaTweets.firstChild);
