@@ -3,12 +3,8 @@
 // variables
 // Seleccionamos el formulario entero del html.
 const formulario = document.querySelector('#formulario');
-
-
-const lista = document.querySelector('lista-tweets');
-
+const listaTweets = document.querySelector('#lista-tweets');
 let tweets = [];
-
 
 // Event Listeners
 eventListeners();
@@ -28,7 +24,11 @@ function eventListeners(){
 
 }
 
-// Funciones
+/**
+ * 
+ * @param {string} e 
+ * @returns 
+ */
 function agregarTweet(e){
 
     // Aqui preventDefault() previene el comportamiento por defecto
@@ -44,12 +44,91 @@ function agregarTweet(e){
     // Validar en caso de que no haya texto
     // No sirve la validacion si el codigo se sigue ejectuando abajo
     if(tweet === ''){
-        console.log(' Debes escribir algún mensaje');
+       mensajeError(' Debes escribir algún mensaje');
+
+        return // Evita que se ejecute mas lineas de codigo, este return funciona en un if siempre que este dentro de una funcion
+    }
+
+
+    const tweetObj = {
+        id:Date.now(),
+        tweet // si nuestra clave / valor son iguales se puede dejar solamente 1 es decir, tweet: tweet
 
     }
-    return // Evita que se ejecute mas lineas de codigo, este return funciona en un if siempre que este dentro de una funcion
-    console.log('hola');
+
+    // 
+    tweets = [...tweets, tweetObj];
+    console.log(tweets);
+
+    // crear html
+    crearHTML();
+    
+    // Reiniciar el formulario, asi no se queda nada guardado en el textArea
+    formulario.reset()
     
 }
 
+/**
+ * Funcion para avisar que hay un error a la hora de dejar vacio el textarea
+ * @param {string} error 
+ */
+function mensajeError(error){
 
+    // 1. ANTES DE CREAR NADA, revisamos si ya existe
+    // Buscamos si hay algún elemento con la clase .error en el HTML
+    const existeError = document.querySelector('.error');
+
+    // 2. SI EXISTE, NO HACEMOS NADA (return mata la función)
+    if (existeError) return; 
+  
+    // creamos un elemento ( una etiqueta p) y la guardamos en la variable mensajeError
+    const mensajeError = document.createElement('p');
+
+    // Con textContent almacenamos gracias al argumento de la funcion lo que se ponga una vez llamada
+    // en este caso : 'Debes escribir algún mensaje' de la linea 50
+    mensajeError.textContent = error;
+    // Ahora a este texto le agregamos una clase llamada ' error ', .error teniene en el css un estilo
+    mensajeError.classList.add('error');
+
+    // Insertar en el contenido
+    // con querySelecto, seleccionamos el id #contenido
+    const contenido = document.querySelector('#contenido');
+    // Una vez seleccionado mediante appendschild le especificamos que agrege el mensaje de error al final del div ( #contenido)
+    contenido.appendChild(mensajeError);
+
+    // Elimina la alerta despues de 3 segundos
+    setTimeout(() => {
+        mensajeError.remove()
+    }, 3000);
+
+}
+
+
+//
+function crearHTML(){
+
+    // Duda de xq va esto primero y no abajo del if
+    limpiarHTML();
+
+    if(tweets.length > 0){
+
+        tweets.forEach( tweet =>{
+            //crear el HTML
+            const li = document.createElement('li');
+            // agregar el texto
+            li.innerHTML =  tweet.tweet;
+            // insertarlo en el html
+            listaTweets.appendChild(li);
+        } )
+
+    }
+
+
+}
+
+// limpiar html para la redundancia de crearHTML
+function limpiarHTML(){
+    while(listaTweets.firstChild){
+        listaTweets.removeChild(listaTweets.firstChild);
+    }
+}
