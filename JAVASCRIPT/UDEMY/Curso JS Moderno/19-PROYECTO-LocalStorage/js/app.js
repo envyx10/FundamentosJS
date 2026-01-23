@@ -110,7 +110,7 @@ function mensajeError(error){
 //
 function crearHTML(){
 
-    // Duda de xq va esto primero y no abajo del if
+    // Lo ponemos primero, es como si queremos corregir algo, primero lo borramos y luego aplicamos la correción
     limpiarHTML();
 
     if(tweets.length > 0){
