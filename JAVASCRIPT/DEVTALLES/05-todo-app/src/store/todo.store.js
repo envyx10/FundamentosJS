@@ -1,5 +1,9 @@
 import { Todo } from "../todos/models/todo.model";
 
+// Es documento es totalmente agnostico al template html
+
+
+
 // Objeto filter.
 const Filters = {
     All: 'all',
@@ -25,6 +29,9 @@ const state = {
     filter: 'Filters.All',
 }
 
+/**
+ * 
+ */
 const initStore = () => {
     console.log(state);
     console.log('InitStore');
@@ -32,6 +39,70 @@ const initStore = () => {
 }
 
 
+/**
+ * 
+ */
+const loadStore = () => {
+    throw new Error('No implementado');
+}
+
+/**
+ * 
+ * @param {String} descripcion 
+ */
+const addTodo = ( descripcion ) => {
+    throw new Error('No implementado');
+}
+
+/**
+ * 
+ * @param {String} todoId 
+ */
+const toggleTodo = ( todoId ) => {
+    throw new Error('No implementado');
+
+}
+
+/**
+ * 
+ * @param {String} todoId 
+ */
+const deleteTodo = ( todoId ) => {
+    throw new Error('No implementado');
+
+}
+
+/**
+ * 
+ */
+const deleteCompleted = () => {
+    throw new Error('No implementado');
+
+}
+
+
+const getCurrentFilter = () => {
+    throw new Error('No implementado');
+
+}
+
+
+/**
+ * 
+ * @param {*} newFilter 
+ */
+const setFilter = ( newFilter = Filters.All) => {
+    throw new Error('No implementado');
+}
+
+
 export default{
-    initStore
+    initStore,
+    loadStore,
+    addTodo,
+    toggleTodo,
+    deleteTodo,
+    deleteCompleted,
+    getCurrentFilter,
+    setFilter
 }
