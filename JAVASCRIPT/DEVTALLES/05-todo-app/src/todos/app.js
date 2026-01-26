@@ -2,6 +2,7 @@
 // ?raw es algo especifico de vite
 // Le dice, no intentes ejecturar el html, 
 // simplemente copialo tal cual y pasalo a la variable html
+import todoStore from '../store/todo.store';
 import html from './app.html?raw';
 
 /**
@@ -11,7 +12,11 @@ import html from './app.html?raw';
 export const App = ( elementId ) => {
 
 
-    
+    const displayTodos = () => {
+        const todos = todoStore.getTodos( todoStore.getCurrentFilter() );
+        console.log(todos);
+        
+    }
 
 
 

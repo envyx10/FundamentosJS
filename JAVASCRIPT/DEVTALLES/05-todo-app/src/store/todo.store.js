@@ -24,6 +24,8 @@ const state = {
         new Todo('Piedra del alma'),
         new Todo('Piedra del infinito'),
         new Todo('Piedra del tiempo'),
+        new Todo('Piedra del poder'),
+        new Todo('Piedra del luz'),
     ],
 
     filter: 'Filters.All',
@@ -48,18 +50,37 @@ const loadStore = () => {
 
 /**
  * 
- * @param {String} descripcion 
+ * @param {string} filter 
  */
-const addTodo = ( descripcion ) => {
-    throw new Error('No implementado');
+const getTodos = ( filter = Filters.All ) => {
+
+    switch( filter ){
+
+        case Filters.All:
+            return [...state.todos];
+
+        case Filters.Completed:
+            return state.todos.filter( todo => todo.done);
+
+        case Filters.Pending:
+            return state.todos.filter( todo => !todo.done);
+
+        default:
+            throw new Error(`Option ${ filter } is not valid`)
+
+    }
+
 }
+
 
 /**
  * 
- * @param {String} todoId 
+ * @param {String} descripcion 
  */
-const toggleTodo = ( todoId ) => {
-    throw new Error('No implementado');
+const addTodo = ( descripcion ) => {
+    
+    if(! descripcion ) throw new Error( 'descripcion is required');
+    state.todos.push( new Todo(descripcion));
 
 }
 
@@ -68,7 +89,27 @@ const toggleTodo = ( todoId ) => {
  * @param {String} todoId 
  */
 const deleteTodo = ( todoId ) => {
-    throw new Error('No implementado');
+    state.todos = state.todos.filter( todo => todo.id !== todoId );
+}
+
+
+/**
+ * @param {String} todoId 
+ */
+const toggleTodo = ( todoId ) => {
+    
+    // Recorremos el array y creamos uno nuevo con las modificaciones
+    state.todos = state.todos.map( todo => {
+        
+        // 1. ¿Es este el muñeco que busco?
+        if( todo.id === todoId ) {
+            // 2. SÍ: Le doy la vuelta a su estado (Flip)
+            todo.done = !todo.done;
+        }
+
+        // 3. Devuelvo el muñeco (ya sea el modificado o el original)
+        return todo;
+    });
 
 }
 
@@ -76,33 +117,32 @@ const deleteTodo = ( todoId ) => {
  * 
  */
 const deleteCompleted = () => {
-    throw new Error('No implementado');
+    state.todos = state.todos.filter( todo => !todo.done );
+}
 
+/**
+ * 
+ * @param {Filters} newFilter 
+ */
+const setFilter = ( newFilter = Filters.All) => {
+    state.filter = newFilter;
 }
 
 
 const getCurrentFilter = () => {
-    throw new Error('No implementado');
-
+    return state.filter
 }
 
-
-/**
- * 
- * @param {*} newFilter 
- */
-const setFilter = ( newFilter = Filters.All) => {
-    throw new Error('No implementado');
-}
 
 
 export default{
     initStore,
     loadStore,
+    getTodos,
     addTodo,
     toggleTodo,
     deleteTodo,
     deleteCompleted,
     getCurrentFilter,
-    setFilter
+    setFilter,
 }
