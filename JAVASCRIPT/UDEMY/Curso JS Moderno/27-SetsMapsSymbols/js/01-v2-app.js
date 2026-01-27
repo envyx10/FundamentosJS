@@ -30,13 +30,15 @@ console.log('\n--- OPCIÓN 2: for...of (La forma recomendada) ---');
  * 1. Sintaxis más limpia: Sin argumentos falsos.
  * 2. Control total: Puedes usar 'break' o 'continue'.
  * 3. Legibilidad: Se lee como "Por cada producto DE el carrito".
+ * La variable -x- puede ser llamada como quieras, siempre y cuando sea legible y tenga sentido, pongo -x- como ejemplo de que puede ser modificada
  */
 
-for (const producto of carrito) {
-    console.log(`Producto: ${producto}`);
+for (const x of carrito) {
+
+    console.log(`Producto: ${x}`);
     
     // Ejemplo de poder: Si encuentro Pantalón, paro el bucle.
-    if(producto === 'Pantalón') {
+    if(x === 'Pantalón') {
         console.log('¡Encontré el pantalón! Parando búsqueda...');
         break; // Esto en forEach daría error
     }
