@@ -33,17 +33,24 @@ carrito.forEach( (producto, index, pertenece) => {
 console.log(carrito);
 
 
-// Ejemplo uso de un set
-
+// Ejemplo uso de un set - pregunta de entrevista
 // Del siguiente array, eliminar los duplicados
-const numeros = [10,20,30,40,50,10,20];
 
-const noDuplicados = new Set(numeros);
+// Imagina que este array viene de una base de datos y no sabes qué hay dentro
+const numeros = [10, 20, 30, 40, 50, 10, 20, 50, 80, 10];
 
-console.log(noDuplicados);
+// PASO 1: La Magia del Set
+// Al hacer 'new Set(numeros)', JavaScript recorre el array por ti.
+// Coge el primer 10 -> Lo guarda.
+// Coge el segundo 10 -> Ve que ya existe -> Lo ignora.
+// Y así con todos.
+const setUnico = new Set(numeros);
 
-if( noDuplicados.has(10)){
-    noDuplicados.delete(10)
-}
+console.log(setUnico); // Set(5) { 10, 20, 30, 40, 50, 80 }
 
-console.log(noDuplicados);
+
+// PASO 2: Volver a tener un Array (Opcional pero recomendado)
+// Usamos el Spread Operator [...] para sacarlos del Set y meterlos en un Array nuevo
+const arrayLimpio = [...setUnico];
+
+console.log(arrayLimpio); // [10, 20, 30, 40, 50, 80]
